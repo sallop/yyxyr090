@@ -15,6 +15,9 @@ module.exports = {
     rules: [{
       test: /\.scss$/,
       loaders: ['style','css','sass']
+    },{
+      test: /\.css$/,
+      loaders: ['style','css']
     }]
   },
 
@@ -46,7 +49,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './src/kituke2.html',
-      filename: 'kingaku2.html',
+      filename: 'kituke2.html',
     }),
     new HtmlWebpackPlugin({
       template: './src/nihonbuyou.html',
