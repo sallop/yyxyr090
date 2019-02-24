@@ -10,11 +10,33 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
 
+  // resolve: {
+  //   alias: {
+  //     'node_modules': path.join(__dirname, 'node_modules')
+  //   },
+  //   modules: [ path.resolve(__dirname, "src/"), 'node_modules' ]
+  // },
+
   module: {
     // loaders: [{
+    // loaders: ['style','css','sass']
     rules: [{
-      test: /\.scss$/,
-      loaders: ['style','css','sass']
+      test: /\.scss$/, 
+      use: [
+        { loader: 'style-loader' },
+        { loader: 'css-loader'   },
+        { loader: 'postcss-loader',
+           options: {
+             plugins: function () {
+               return [
+                 require('precss'),
+                 require('autoprefixer')
+               ];
+             }
+           }
+        },
+        { loader: 'sass-loader' }
+      ]
     },{
       test: /\.css$/,
       loaders: ['style','css']
@@ -24,9 +46,7 @@ module.exports = {
   watch: true,
   devtool: 'inline-source-map',
   devServer: {
-    // contentBase: './dist',
     contentBase: path.resolve(__dirname, "dist"),
-    // contentBase: path.resolve(__dirname, "src"),
     // hot: true,
     // publicPath: '/assets/',
     // watch: true, not this property
@@ -35,9 +55,18 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    }),
     new HtmlWebpackPlugin({
       template: 'src/index.htm',
-      filename: 'index.htm'
+      filename: 'index.htm',
+      //// https://medium.com/commencis/how-to-import-bootstrap-using-webpack-7245eba98056
+      //extraFiles: {
+      //  css: config.homeUrl + 'static/css/bootstrap.min.css'
+      //}
     }),
     new HtmlWebpackPlugin({
       template: './src/Link.html',
