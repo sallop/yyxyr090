@@ -2,3 +2,67 @@
 /*
 @import "./hpb9tm10_16";
  */
+
+$sidebar-width: 220px;
+
+aside {
+  display: block;
+}
+
+.wrapper {
+  /* position: relative; */
+  /* display: flex; */
+  /* width: 100%; align-items: stretch; */
+  /* justify-content: space-between; */
+}
+
+.sidebar {
+  /*
+    width: $sidebar-width;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 10px;
+    background-color: transparent;
+    overflow-x: hidden;
+    padding: 8px 0;
+    flex: 1;
+   */
+  /*
+    width: 25%;
+    height: 25vh;
+  */
+  float: left;
+    width: $sidebar-width;
+
+}
+
+.main {
+  /* position: relative; margin-left: $sidebar-width + 10px; padding: 0px 10px; */
+  width: 60%;
+  height: 150vh;
+
+  float: left;
+}
+
+.pictures {
+  float: left;
+  clear: left;
+}
+
+.after-box {
+  clear: left;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+img {
+  display: none;
+}
+
+footer {
+  clear: left;
+  text-align: center;
+}
