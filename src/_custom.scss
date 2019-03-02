@@ -7,14 +7,16 @@
   overflow: auto;
 }
 
+// $sidebar-width: 240px;
 $sidebar-width: 240px;
 
 .wrapper {
   // position: relative;
 }
 
-#sidebar, #content {
-  position: absolute;
+#sidebar, #sidebar-right, #content {
+  // position: absolute;
+  position: relative;
   height: 100%;
   // overflow: auto;
   float: left;
@@ -23,14 +25,23 @@ $sidebar-width: 240px;
 
 #sidebar {
   background: white;
-  // width: 30%;
-  width: $sidebar-width;
+  width: 200px;
+}
+
+#sidebar-right {
+  background-color: #dce77a;
+  width: 280px;
+  float: right;
 }
 
 #content {
   left: $sidebar-width + 10;
   // background: gray;
   width: 70%;
+}
+
+footer {
+  clear: both;
 }
 
 .disable {
