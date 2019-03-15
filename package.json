@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "browser-sync init",
-    "start:dev": "browser-sync"
+    "start:dev": "browser-sync start --server 'src/' --index 'index.htm' --files 'src/*.htm?'"
   },
   "repository": {
     "type": "git",
